@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from pathlib import Path
 import sys
-import cairosvg  
+# import cairosvg
 from A0_config import new_pred_CSV, BALL_IMG_DIR
 
 def main():
@@ -20,15 +20,16 @@ def main():
 
         for i, num in enumerate(numbers):
             with cols[i]:
-                svg_path = BALL_IMG_DIR / f"{num}.svg"
-                png_path = BALL_IMG_DIR / f"temp_{num}.png"
+                # svg_path = BALL_IMG_DIR / f"{num}.svg"
+                # png_path = BALL_IMG_DIR / f"temp_{num}.png"
+                ball_path = BALL_IMG_DIR / f"{num}.png"
 
-                if svg_path.exists():
+                if ball_path.exists():
                     # 轉換 SVG → PNG
-                    cairosvg.svg2png(url=str(svg_path), write_to=str(png_path))
-                    st.image(str(png_path), width=100)
+                    # cairosvg.svg2png(url=str(balls_path), write_to=str(png_path))
+                    st.image(str(ball_path), width=60)
                 else:
-                    st.warning(f"❌ 找不到球圖：{svg_path.name}")
+                    st.warning(f"❌ 找不到球圖：{ball_path.name}")
 
     except Exception as e:
         st.error(f"⚠️ 無法載入推薦資料：{e}")
