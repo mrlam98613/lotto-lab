@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 from pathlib import Path
 import sys
-# import cairosvg
 from A0_config import new_pred_CSV, BALL_IMG_DIR
 
 def main():
